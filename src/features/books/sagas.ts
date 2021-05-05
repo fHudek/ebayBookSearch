@@ -1,6 +1,6 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { BookActions, SEARCH_BOOKS } from './actions';
-import { getBooksByType } from '../../book-search/book-search.service';
+import { getBooksByType } from '../../components/bookSearch/book-search.service';
 
 export function* searchBooks(
 	action: ReturnType<typeof BookActions.searchBooks>
@@ -8,7 +8,11 @@ export function* searchBooks(
 	const phrase = action.payload;
 	const searchResultBooks = yield call(getBooksByType, phrase);
 
-	yield put(BookActions.setBooksToSearchList(searchResultBooks));
+	const booksInfo = searchResultBooks.items.map(
+		(book: any) => book.volumeInfo
+	);
+
+	yield put(BookActions.setBooksToSearchList(booksInfo));
 }
 
 export function* rootSaga() {

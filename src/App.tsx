@@ -1,21 +1,14 @@
 import React from 'react';
 import './styles/App.scss';
-import BookSearch from './book-search/BookSearch';
+import { Switch, Route } from 'react-router';
+import Home from './pages/Home';
 
 function App() {
-  return (
-      <div>
-        <header className="header">
-          <div className="header--content">
-            <h1>My Good Reads</h1>
-          </div>
-        </header>
-        <main>
-          <BookSearch/>
-        </main>
-
-      </div>
-  );
+	return (
+		<Switch>
+			<Route component={Home} />
+		</Switch>
+	);
 }
 
 export default App;

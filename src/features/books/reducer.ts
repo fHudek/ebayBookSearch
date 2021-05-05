@@ -2,6 +2,7 @@ import {
 	ADD_BOOK_TO_WISH_LIST,
 	BookActionsType,
 	SET_BOOKS_TO_SEARCH_LIST,
+	CLEAR_SEARCH_LIST,
 } from './actions';
 import { Book } from './types';
 
@@ -23,6 +24,8 @@ export default (state = initialState, action: BookActionsType) => {
 				...state,
 				searchList: books,
 			};
+		case CLEAR_SEARCH_LIST:
+			return { ...state, searchList: [] };
 		case ADD_BOOK_TO_WISH_LIST:
 			const book = action.payload;
 			return {
