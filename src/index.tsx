@@ -4,12 +4,15 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import store from './features/store';
+import store, { history } from './features/store';
+import { ConnectedRouter } from 'connected-react-router';
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<App />
+			<ConnectedRouter history={history}>
+				<App />
+			</ConnectedRouter>
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')

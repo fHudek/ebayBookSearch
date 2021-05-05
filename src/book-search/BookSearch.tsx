@@ -1,24 +1,19 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { getBooksByType } from './book-search.service';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { BookActions } from '../features/books/actions';
+import { getSearchListBooks } from '../features/books/selectors';
+import { history } from '../features/store';
+import { getSearchPhrase } from '../features/router/selectors';
 
 const BookSearch = () => {
+	const dispatch = useDispatch();
 	const [bookType, updateBookType] = useState('');
-	const [bookTypeToSearch, updateBookTypeToSearch] = useState('');
-	const [allAvailableBooks, setAllAvailableBooks] = useState([]);
-
-	const requestBooks = useCallback(async () => {
-		if (bookTypeToSearch) {
-			const allBooks = await getBooksByType(bookTypeToSearch);
-			setAllAvailableBooks(allBooks);
-		}
-	}, [bookTypeToSearch]);
+	const searchListBooks = useSelector(getSearchListBooks);
+	const searchPhrase = useSelector(getSearchPhrase);
 
 	useEffect(() => {
-		async function getAllBooks() {
-			await requestBooks();
-		}
-		getAllBooks();
-	}, [bookTypeToSearch, requestBooks]);
+		dispatch(BookActions.searchBooks(searchPhrase));
+	}, [searchPhrase, dispatch]);
 
 	return (
 		<>
@@ -27,9 +22,10 @@ const BookSearch = () => {
 					<div>
 						<form
 							onSubmit={(e) => {
-								debugger;
 								e.preventDefault();
-								updateBookTypeToSearch(bookType);
+								history.push({
+									search: `?searchPhrase=${bookType}`,
+								});
 							}}
 						>
 							<input
@@ -61,7 +57,7 @@ const BookSearch = () => {
 					</div>
 				</div>
 			</div>
-			{<pre>{JSON.stringify(allAvailableBooks, null, 4)}</pre>}
+			{<pre>{JSON.stringify(searchListBooks, null, 4)}</pre>}
 		</>
 	);
 };
