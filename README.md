@@ -10,6 +10,7 @@ For example:
 As described lower project uses yarn.
 
 yarn start -> start the project
+
 yarn test -> run tests
 
 If you have any questions, don't hesitate to contact me.
