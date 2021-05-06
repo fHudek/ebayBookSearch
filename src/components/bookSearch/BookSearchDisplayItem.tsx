@@ -14,11 +14,13 @@ const BookSearchDisplayItem = ({ book }: { book: Book }) => {
 	return (
 		<div key={book.id} className="book-search-display-item">
 			<div className="top">
-				<img
-					className="image"
-					src={book.imageLinks?.thumbnail}
-					alt="book cover"
-				/>
+				<div className="image-wrapper">
+					<img
+						className="image"
+						src={book.imageLinks?.thumbnail}
+						alt="book cover"
+					/>
+				</div>
 				<div className="top-right">
 					<button className="star-button" onClick={addToWishList}>
 						<FullStar width="2rem" height="2rem" />

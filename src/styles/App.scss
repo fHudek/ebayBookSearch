@@ -105,11 +105,16 @@ main {
 		width: 100%;
 	}
 
-	.image {
+	.image-wrapper {
 		flex: 0 0 auto;
-		height: 150px;
-		width: auto;
+		max-height: 150px;
+		max-width: 120px;
 		margin-right: $spacing-xs;
+	}
+
+	.image {
+		height: auto;
+		width: auto;
 	}
 
 	.top-right {
