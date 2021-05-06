@@ -52,6 +52,7 @@ const BookSearchDisplayItem = ({ book }: { book: Book }) => {
 			<div className="description-text-wrapper">
 				{book.description ? book.description : 'not specified'}
 			</div>
+			<div className="bottom-fade" />
 		</div>
 	);
 };

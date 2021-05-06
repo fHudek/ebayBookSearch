@@ -90,6 +90,7 @@ main {
 .book-search-display-item {
 	width: 20rem;
 	height: 30rem;
+	position: relative;
 	display: flex;
 	align-items: flex-start;
 	flex-direction: column;
@@ -147,6 +148,17 @@ main {
 		flex: 1 1 100%;
 		text-overflow: ellipsis;
 		overflow: hidden;
+	}
+
+	.bottom-fade {
+		position: absolute;
+		bottom: $spacing-xs;
+		height: 3rem;
+		width: calc(100% - 2 * #{$spacing-xs});
+		background-image: linear-gradient(
+			rgba(255, 255, 255, 0),
+			rgba(255, 255, 255, 1)
+		);
 	}
 }
 
