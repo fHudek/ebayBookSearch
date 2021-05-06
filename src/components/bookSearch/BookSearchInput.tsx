@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BookActions } from '../../features/books/actions';
-import { getSearchPhrase } from '../../features/router/selectors';
+import { getSearchPhrase } from '../../features/books/selectors';
 
 const BookSearchForm = () => {
 	const dispatch = useDispatch();
@@ -14,11 +14,6 @@ const BookSearchForm = () => {
 		},
 		[dispatch]
 	);
-
-	useEffect(() => {
-		dispatch(BookActions.searchBooks(searchPhrase));
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
 
 	return (
 		<form

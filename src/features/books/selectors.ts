@@ -7,3 +7,5 @@ export const getWishListBooks = (state: RootState) =>
 
 export const getWishListBookIds = (state: RootState) =>
 	Object.keys(state.books.wishList);
+
+export const getSearchPhrase = (state: RootState) => state.books.searchPhrase;

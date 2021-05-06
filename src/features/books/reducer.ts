@@ -4,21 +4,29 @@ import {
 	SET_BOOKS_TO_SEARCH_LIST,
 	CLEAR_SEARCH_LIST,
 	REMOVE_BOOK_TO_WISH_LIST,
+	SEARCH_BOOKS,
 } from './actions';
 import { Book } from './types';
 
 export type BookstateType = {
+	searchPhrase: string;
 	searchList: Book[];
 	wishList: { [key: string]: Book };
 };
 
 const initialState: BookstateType = {
+	searchPhrase: '',
 	searchList: [],
 	wishList: {},
 };
 
 export default (state = initialState, action: BookActionsType) => {
 	switch (action.type) {
+		case SEARCH_BOOKS:
+			return {
+				...state,
+				searchPhrase: action.payload,
+			};
 		case SET_BOOKS_TO_SEARCH_LIST:
 			const books = action.payload;
 			return {
