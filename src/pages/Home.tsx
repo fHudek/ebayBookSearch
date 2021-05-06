@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/App.scss';
 import BookSearch from '../components/bookSearch/BookSearch';
+import WishList from '../components/wishList/WishList';
 
 function Home() {
 	return (
@@ -14,7 +15,9 @@ function Home() {
 				<div className="book-search-container">
 					<BookSearch />
 				</div>
-				<div className="wish-list"></div>
+				<div className="wish-list-container">
+					<WishList />
+				</div>
 			</main>
 		</div>
 	);

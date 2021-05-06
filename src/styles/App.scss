@@ -110,6 +110,18 @@ main {
 		margin-right: $spacing-xs;
 	}
 
+	.top-right {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.star-button {
+		align-self: flex-end;
+		cursor: pointer;
+		background: none;
+		border: none;
+	}
+
 	.title {
 		margin: $spacing-xxs 0;
 	}
@@ -130,13 +142,33 @@ main {
 	}
 }
 
-.wish-list {
-	background-color: red;
+.wish-list-container {
 	width: 30rem;
 	height: 30rem;
 	flex: 0 0 auto;
 }
 
+.wish-list {
+	margin: $spacing-xs;
+}
+.wish-list-header {
+	font-weight: 600;
+}
+.wish-list-books {
+}
+.wish-list-book {
+	margin: $spacing-xs 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.wish-list-book:hover {
+	background-color: $gray20;
+}
+
+.wish-list-book-button {
+	height: 1.5rem;
+}
 .reading-list-container {
 	padding: 0;
 	width: 400px;

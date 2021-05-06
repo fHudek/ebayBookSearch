@@ -29,7 +29,7 @@ const BookSearchDisplay = () => {
 		return (
 			<div className="book-search-display">
 				{searchListBooks.map((book) => (
-					<BookSearchDisplayItem book={book} />
+					<BookSearchDisplayItem key={book.id} book={book} />
 				))}
 			</div>
 		);

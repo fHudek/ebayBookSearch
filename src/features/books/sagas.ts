@@ -8,9 +8,9 @@ export function* searchBooks(
 	const phrase = action.payload;
 	const searchResultBooks = yield call(getBooksByType, phrase);
 
-	const booksInfo = searchResultBooks.items.map(
-		(book: any) => book.volumeInfo
-	);
+	const booksInfo = searchResultBooks.items.map((book: any) => {
+		return { id: book.id, ...book.volumeInfo };
+	});
 
 	yield put(BookActions.setBooksToSearchList(booksInfo));
 }

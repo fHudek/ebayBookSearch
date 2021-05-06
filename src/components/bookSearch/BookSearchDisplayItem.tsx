@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Book } from '../../features/books/types';
+import { ReactComponent as FullStar } from '../../assets/icons/star-full.svg';
+import { useDispatch } from 'react-redux';
+import { BookActions } from '../../features/books/actions';
 
 const BookSearchDisplayItem = ({ book }: { book: Book }) => {
+	const dispatch = useDispatch();
+
+	const addToWishList = useCallback(() => {
+		dispatch(BookActions.addBookToWishList(book));
+	}, [book, dispatch]);
+
 	return (
-		<div className="book-search-display-item">
+		<div key={book.id} className="book-search-display-item">
 			<div className="top">
 				<img
 					className="image"
 					src={book.imageLinks?.thumbnail}
 					alt="book cover"
 				/>
-				<h3 className="title">{book.title}</h3>
+				<div className="top-right">
+					<button className="star-button" onClick={addToWishList}>
+						<FullStar width="2rem" height="2rem" />
+					</button>
+					<h3 className="title">{book.title}</h3>
+				</div>
 			</div>
 			<div className="attr">
 				<b>{`${
