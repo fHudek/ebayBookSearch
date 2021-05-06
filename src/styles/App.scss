@@ -131,6 +131,9 @@ main {
 		cursor: pointer;
 		background: none;
 		border: none;
+		:hover {
+			background-color: $blue-dark;
+		}
 	}
 
 	.title {
@@ -180,6 +183,7 @@ main {
 }
 .wish-list-books {
 }
+
 .wish-list-book {
 	margin: $spacing-xs 0;
 	display: flex;
