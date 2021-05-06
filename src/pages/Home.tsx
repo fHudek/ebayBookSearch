@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/App.scss';
 import BookSearch from '../components/bookSearch/BookSearch';
 import WishList from '../components/wishList/WishList';
 
