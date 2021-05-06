@@ -37,7 +37,6 @@ describe('Testing FetchUrl - Wrapper over fetch', () => {
 		// Inject mock fetch into global
 		global.fetch = mockFetch;
 		const fetchResponse = fetchUrl('/api/v1/someUrl');
-		console.log(fetchResponse);
 		expect(fetchResponse).to.eventually.equal(res);
 		delete global.fetch;
 	});
