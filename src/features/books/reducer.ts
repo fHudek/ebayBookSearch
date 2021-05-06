@@ -14,7 +14,7 @@ export type BookstateType = {
 	wishList: { [key: string]: Book };
 };
 
-const initialState: BookstateType = {
+export const initialState: BookstateType = {
 	searchPhrase: '',
 	searchList: [],
 	wishList: {},

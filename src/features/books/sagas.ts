@@ -2,7 +2,9 @@ import { all, call, put, debounce } from 'redux-saga/effects';
 import { BookActions, SEARCH_BOOKS } from './actions';
 import { getBooksByType } from '../../components/bookSearch/book-search.service';
 
-function* searchBooks(action: ReturnType<typeof BookActions.searchBooks>) {
+export function* searchBooks(
+	action: ReturnType<typeof BookActions.searchBooks>
+) {
 	const phrase = action.payload;
 	if (phrase) {
 		const searchResultBooks = yield call(getBooksByType, phrase);
