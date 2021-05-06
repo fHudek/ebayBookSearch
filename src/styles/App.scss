@@ -131,8 +131,11 @@ main {
 		cursor: pointer;
 		background: none;
 		border: none;
-		:hover {
-			background-color: $blue-dark;
+		svg:hover {
+			fill: $blue-dark;
+		}
+		svg:active {
+			fill: $blue-accent;
 		}
 	}
 
