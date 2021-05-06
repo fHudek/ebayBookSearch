@@ -1,10 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getSearchListBooks } from '../../features/books/selectors';
-import { history } from '../../features/store';
 import BookSearchDisplayItem from './BookSearchDisplayItem';
+import { BookActions } from '../../features/books/actions';
 
 const BookSearchDisplay = () => {
+	const dispatch = useDispatch();
 	const searchListBooks = useSelector(getSearchListBooks);
 
 	if (searchListBooks.length === 0) {
@@ -15,9 +16,7 @@ const BookSearchDisplay = () => {
 					<button
 						className="link-button"
 						onClick={() => {
-							history.push({
-								search: '?searchPhrase=Javascript',
-							});
+							dispatch(BookActions.searchBooks('Javascript'));
 						}}
 					>
 						{' "Javascript"'}
